@@ -1,0 +1,61 @@
+@use "sass:math";
+// Скидання стилів
+@use "_reset.scss";
+// Шрифти
+@use "_fonts.scss";
+// Іконки
+@use "_icons.scss";
+// Міксіни
+@use "_mixins.scss" as *;
+// Кольори
+// @use "_colors.scss" as *;
+@use "colors.css";
+// Типографія
+@use "_typo.scss" as *;
+// Компоненти
+@use "_components.scss" as *;
+// Header
+@use "_header.scss";
+// Footer
+@use "_footer.scss";
+
+// Pages
+@use "_home.scss";
+@use "_catalog.scss";
+@use "_product.scss";
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 500;
+	color: var(--black-1);
+}
+.wrapper {
+	position: relative;
+	min-height: 100%;
+	overflow: clip;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper > main {
+	flex-grow: 1;
+}
+[class*="__container"] {
+	padding-inline: toRem(15);
+	max-width: 1422px;
+	margin: 0 auto;
+}
+
+// --------------------------------------
+[class*="--sections"] {
+	> *:not([class*="--nomargin"]) {
+		@include adaptiveValue("margin-bottom", 82, 25);
+	}
+	> *:not([class*="--nopadding"]) {
+		@include adaptiveValue("padding-top", 82, 25);
+	}
+}
+// --------------------------------------
+main {
+	@include adaptiveValue("padding-top", 164, 70, 0, 1392, 670);
+}
+// --------------------------------------
